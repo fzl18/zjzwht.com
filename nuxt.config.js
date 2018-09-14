@@ -3,17 +3,17 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'nuxt',
+    title: '真家真味',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: '真家真味海苔' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-	css: ['iview/dist/styles/iview.css','~assets/css/main.less'],
+	css: ['~assets/css/main.less','aos/dist/aos.css'],
   /*
   ** Customize the progress bar color
   */
@@ -38,7 +38,7 @@ module.exports = {
 //         })
 //       }
 //     }
-	// vendor: ['aos'],
+	vendor: ['aos'],
   }
 }
 
