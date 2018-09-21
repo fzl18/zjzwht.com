@@ -16,8 +16,20 @@ export default {
 
   data(){
     return{
-      skin:[]
+      skin:[],
     }
+  },
+  mounted(){
+    
+  },
+  methods:{
+    init(){
+      this.isMobile()
+    },
+    isMobile() {
+      let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+      // this.isMobile = (flag && flag.length) >0 ? true : false
+    },
   }
 }
 </script>

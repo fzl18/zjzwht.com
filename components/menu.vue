@@ -4,10 +4,10 @@
       <Affix :offset-top="100" @on-change="change">
         <dl>
           <dt></dt>
-          <dd v-for="(item,index) in nav" @click="jumpTo(`#part-${index + 1}`)" :class=" activeMenu == (index )? 'cur':''" >{{item}}</dd>
+          <dd v-for="(item,index) in this.lang[this.local].menu" @click="jumpTo(`#part-${index + 1}`)" :class=" activeMenu == (index )? 'cur':''" >{{item}}</dd>
         </dl>
-        <div @click="$store.commit('toggle','topShow')">设置{{topShow ? '隐藏':'显示'}}</div> 
-        <div @click="$store.commit('toggle','leftShow')">侧边{{leftShow ? '隐藏':'显示'}}</div>
+        <div @click="$store.commit('toggle','topShow')">{{lang[local].setting}}{{topShow ? lang[local].hide:lang[local].show}}</div> 
+        <div @click="$store.commit('toggle','leftShow')">{{lang[local].leftSide}}{{leftShow ? lang[local].hide:lang[local].show}}</div>
         <a href="javascript:;" @click="jumpTo('#index')">top</a>
       </Affix> 
     </div>       
@@ -18,17 +18,16 @@
     export default {
         data(){
           return{
-            nav:['菜单','菜单','菜单','菜单','菜单','菜单','菜单'],
             activeMenu:0,
             allOffset:[]
           }
         },
         computed:
-          mapState(['topShow','leftShow'])
+          mapState(['lang','local','topShow','leftShow'])
         ,
-        mounted(){          
+        mounted(){
           this.$nextTick(function () {
-          this.nav.map((d,i)=>{
+          this.lang[this.local].menu.map((d,i)=>{
             this.allOffset.push(document.querySelector(`#part-${i+1}`).offsetTop)
           })
             window.addEventListener('scroll', this.onScroll)
@@ -36,7 +35,6 @@
         },
         methods:{
           change(){
-            console.log('sd')
           },
           onScroll() {
             let scrolled = document.documentElement.scrollTop || document.body.scrollTop

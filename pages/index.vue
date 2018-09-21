@@ -12,105 +12,41 @@
             </div>
         </section>
         <main>
-            <section id="part-1" style="height:100vh">
-                <Menu />
-                <!-- part1 -->
-                <div class="mainbox">
-                    <div
-                        data-aos="fade-left"
-                        data-aos-delay="500"
-                        data-aos-easing="ease-in-out"
-                        data-aos-anchor-placement="top-center"
-                    >
-                        11111111111111111
-                    </div>
-                </div>
-            </section>
-            <section id="part-2" style="height:100vh">
-                <!-- part2 -->                
-                <div class="mainbox">
-                    <div
-                        data-aos="fade-right"
-                        data-aos-delay="500"
-                        data-aos-easing="ease-in-out"
-                        data-aos-anchor-placement="top-center"
-                    >
-                        22222222222222222222
-                    </div>
-                </div>
-            </section>
-            <section id="part-3" style="height:100vh">
-                <!-- part3 -->
-                <div class="mainbox">
-                    <div
-                        data-aos="fade-down"
-                        data-aos-delay="500"
-                        data-aos-easing="ease-in-out"
-                        data-aos-anchor-placement="top-center"
-                    >
-                        33333333333333333333
-                    </div>
-                </div>
-            </section>
-            <section id="part-4" style="height:100vh">
-                <!-- part3 -->
-                <div class="mainbox">
-                    <div
-                        data-aos="fade-up"
-                        data-aos-delay="500"
-                        data-aos-easing="ease-in-out"
-                        data-aos-anchor-placement="top-center"
-                    >
-                        4444444444444444444
-                    </div>
-                </div>
-            </section>
-            <section id="part-5" style="height:100vh">
-                <!-- part3 -->
-                <div class="mainbox">
-                    55555555555555555555
-                </div>
-            </section>
-            <section id="part-6" style="height:100vh">
-                <!-- part3 -->
-                <div class="mainbox">
-                    6666666666666666666
-                </div>
-            </section>
-            <section id="part-7" style="height:100vh">
-                <!-- part3 -->
-                <div class="mainbox">
-                    777777777777777777
-                </div>
-            </section>
-            <section id="part-8" style="height:100vh">
-                <!-- part3 -->
-                <div class="mainbox">
-                    88888888888888888
-                </div>
+            <section style="height:100vh" v-for="(item,index) in lang[local].menu" :id="`part-${index + 1}`">
+                <Menu v-if="index == 0" />
+                <div :is="`part${index +1}`" />
             </section>
         </main>
-        <footer>sdfsdfwefewef</footer>
+        <footer>foot</footer>
         <!-- other -->
-        <Topblock v-model="$store.state.topShow" />
-        <LeftSide v-model="$store.state.leftShow"/>
+        <Topblock v-model="topShow" />
+        <LeftSide v-model="leftShow"/>
     </section>  
 </template>
 
 <script>
+import {mapState} from "vuex"
 import Menu from '../components/menu'
 import LeftSide from '../components/leftSide'
 import Topblock from '../components/topblock'
+import Part1 from '../components/part/part1'
+import Part2 from '../components/part/part2'
+import Part3 from '../components/part/part3'
+import Part4 from '../components/part/part4'
+import Part5 from '../components/part/part5'
+import Part6 from '../components/part/part6'
+import Part7 from '../components/part/part7'
 export default {
     components:{
-        Menu,LeftSide,Topblock,
+        Menu,LeftSide,Topblock, Part1, Part2, Part3, Part4, Part5, Part6, Part7
     },
     data () {
         return{
-
         }
     },
-    // computed:mapState(['topShow','leftShow']),
+    computed:
+          mapState(['lang','local','topShow','leftShow'])
+        ,
     mounted () {
         const AOS = require('aos')
         AOS.init()

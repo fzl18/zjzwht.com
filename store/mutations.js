@@ -1,6 +1,6 @@
 const mutations = {
-    changLang(state,lang) {
-      state.lang = lang
+    changeLang(state,lang) {
+      state.local = lang
     },
     toggle(state,type) {
       state[type] = !state[type]

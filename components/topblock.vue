@@ -7,11 +7,12 @@
       <dd>3</dd>
       <dd @click="close">关闭</dd>
     </dl>
-    
+    <changeLang />
   </div>
 </template>
 
 <script>
+import changeLang from "./changeLang";
 export default {
     data(){
         return({
@@ -23,9 +24,12 @@ export default {
             default:false
         }
     },
+    components:{
+        changeLang
+    },
     methods:{
         close(){
-            this.$emit('input',false)
+            this.$store.commit('toggle','topShow')
         }
     }
 }
@@ -45,6 +49,7 @@ export default {
     top:-@height;
     left:calc(50% - @width/2);
     z-index:999;
+    padding:20px;
     // transform:translate(0,-@height)
 }
 .show{    

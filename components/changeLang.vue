@@ -1,11 +1,15 @@
 <template>
     <Dropdown trigger="click" @on-click="changeLang">
         <a href="javascript:void(0)">
-            click 触发
+            <template v-for=" curlang in lang.type">
+                {{local == curlang.val ? curlang.title : null }}
+            </template>
             <Icon type="ios-arrow-down"></Icon>
         </a>
         <DropdownMenu slot="list">
-            <DropdownItem>驴打滚</DropdownItem>
+            <template v-for=" curlang in lang.type">
+                <DropdownItem :name="curlang.val">{{curlang.title}}</DropdownItem>
+            </template>
         </DropdownMenu>
     </Dropdown>
 </template>
@@ -24,9 +28,9 @@
             
         },
         methods:{
-            changeLang(lang){
-                this.$store.commit('changeLang', lang);
-                document.title = this.lang[this.local].htmlTitle || ''
+            changeLang(lang){  
+                this.$store.commit('changeLang', lang)
+                // document.title = this.lang[this.local].htmlTitle || ''
             },
             
         }
