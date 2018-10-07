@@ -34,7 +34,12 @@ export default {
             if(localStorage.skin && localStorage.skin != type){
                 localStorage.skin = type
                 location.reload()
-            }                    
+            }else if(!localStorage.skin){
+                localStorage.skin = type
+                location.reload()
+            }else{
+                return
+            }
         }
     }
 }
