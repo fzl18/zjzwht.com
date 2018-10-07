@@ -1,5 +1,5 @@
 <template>
-  <div class="mainbox">
+  <div class="mainbox no">
     <div class="menu">      
       <Affix :offset-top="100" @on-change="change">
         <dl>
@@ -10,7 +10,7 @@
         <div @click="$store.commit('toggle','leftShow')">{{lang[local].leftSide}}{{leftShow ? lang[local].hide:lang[local].show}}</div>
         <a href="javascript:;" @click="jumpTo('#index')">top</a>
       </Affix> 
-    </div>       
+    </div>
   </div>
 </template>
 <script>
@@ -102,7 +102,7 @@
   position:absolute;
   width: @width;
   right:-@width;
-  dd{
+  dd{    
     display:block;
     cursor:pointer;
     &.cur{color:red}

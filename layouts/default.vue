@@ -4,6 +4,7 @@
   </div>
 </template>
 <script>
+
 export default {
 //   head: {
 //         script: [
@@ -16,9 +17,14 @@ export default {
 
   data(){
     return{
-      skin:[],
     }
   },
+  // computed:
+  //   mapState(['lang','local','skin','topShow','leftShow'])
+  // ,
+  // created(){
+  //   require(`../static/skin/${this.skin}/style.less`) 
+  // },
   mounted(){
     
   },
@@ -35,8 +41,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .layout{
-    background:#eee
-  }
+  
 </style>
 

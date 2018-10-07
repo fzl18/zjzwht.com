@@ -47,8 +47,10 @@ export default {
     z-index:999;
     color:#000;
     padding:20px;
+    opacity:0;
 }
-.show{    
+.show{
     left:0;
+    opacity:1;
 }
 </style>

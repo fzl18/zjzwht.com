@@ -1,18 +1,19 @@
 <template>
     <section>        
-        <section id="index" style="height:100vh">
+        <section id="index">
             <div
                 data-aos="fade-down"
                 data-aos-duration="1000"
                 data-aos-delay="1150"
                 data-aos-easing="ease-in-out"
                 data-aos-anchor-placement="top-center"
+                class="txt"
             >
                 首页动画
             </div>
         </section>
         <main>
-            <section style="height:100vh" v-for="(item,index) in lang[local].menu" :id="`part-${index + 1}`">
+            <section v-for="(item,index) in lang[local].menu" :id="`part-${index + 1}`">
                 <Menu v-if="index == 0" />
                 <div :is="`part${index +1}`" />
             </section>
@@ -45,11 +46,22 @@ export default {
         }
     },
     computed:
-          mapState(['lang','local','topShow','leftShow'])
-        ,
+        mapState(['lang','local','skin','topShow','leftShow'])
+    ,
+    created(){
+        
+    },
     mounted () {
         const AOS = require('aos')
         AOS.init()
+        let curSkin
+        if(localStorage.skin){
+            this.$store.commit('changeSkin',localStorage.skin)
+            curSkin = localStorage.skin
+        }else{
+            curSkin = this.skin
+        }         
+        require(`../static/skin/${curSkin}/style.less`)
     },
     methods:{
 

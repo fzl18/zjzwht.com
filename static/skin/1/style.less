@@ -1,0 +1,58 @@
+.layout{
+    background:url("~static/skin/1/bg.jpeg") no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+}
+// 页面样式
+.base{
+    height:100vh;
+    background:#fff;
+    padding:10px;
+    box-shadow:0 8px 8px rgba(0, 0, 0, .3);
+    position: relative;
+}
+#index{
+    height:100vh;
+    background: rgba(0, 0, 0, .6);
+    .txt{
+        color:#fff;
+        font-size:30px;
+        text-align: center;
+    }
+}
+#part-1{
+    .mainbox{        
+        .base();
+        &.no{
+            height:inherit;
+            background:inherit;
+            padding:inherit;
+            box-shadow:none;
+        }
+    }
+}
+#part-2{
+    .mainbox{
+        .base()
+    }
+}
+#part-3{
+    .mainbox{
+        .base()
+    }
+}
+#part-4{
+    .mainbox{
+        height:100vh;
+        background:#fff;
+    }
+}
+#part-5{
+    .mainbox{
+        height:100vh;
+        background:#fff;
+    }
+}
+#part-6{
+    height:100vh;
+}

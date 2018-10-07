@@ -8,6 +8,7 @@ const createStore = () => {
     state: {
       local:'cn',
       lang,
+      skin:1,
       topShow :false,
       leftShow :false,
     },
